@@ -1,0 +1,31 @@
+body{
+  margin: 0;
+  padding: 0;
+  background-color: #d4e5f1;
+}
+.headerContainer{
+  /* background-color: #b9d7eb; */
+  background-image: url("./assets/images/section1Back.webp");
+  background-position: center;
+  background-size: cover;
+}
+.scrollDown{
+  animation: infinite scrollscale 2s;
+}
+.scrollDown:hover{
+  scale: 1.02;
+}
+.loaderContainer{
+  clip-path: polygon(0 0, 0 100%, 90% 100%, 100% 0%, 100% 0);
+  box-shadow: 10 !important;
+  z-index: 10;
+}
+.bikelogo{
+  /* box-shadow: inset 10px 1px 100px red; */
+  rotate: calc(20deg);
+  filter: drop-shadow(10px 10px 20px rgb(240, 171, 160));
+}
+@keyframes scrollscale {
+  from {color: rgb(16, 16, 16);}
+  to {color: silver;}
+}
