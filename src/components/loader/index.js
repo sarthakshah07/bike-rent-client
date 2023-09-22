@@ -10,10 +10,10 @@ import { Typography } from "@mui/material";
 const CheckMarkSlider = styled(Slider)(({ theme }) => ({
   color: "#3a8589",
   height: 3,
-  padding: "13px 0",
+  // padding: "13px 0",
   "& .MuiSlider-thumb": {
     height: 120,
-    width: 20,
+    width: 2,
     backgroundColor: "#fff",
     border: "1px solid currentColor",
     "&:hover": {
@@ -74,7 +74,7 @@ const Loader = () => {
   }, [value]);
 
   return (
-    <Box sx={{ width: 320 }}>
+    <Box sx={{ width: {md:"70%", xs:"50%"} }}>
       <CheckMarkSlider
         value={value}
         disabled
