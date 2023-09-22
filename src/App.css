@@ -1,6 +1,8 @@
 body{
   margin: 0;
   padding: 0;
+  max-width: 100vw;
+  max-height: 100vh;
   background-color: #d4e5f1;
 }
 .headerContainer{
@@ -25,6 +27,7 @@ body{
   rotate: calc(20deg);
   filter: drop-shadow(10px 10px 20px rgb(240, 171, 160));
 }
+
 @keyframes scrollscale {
   from {color: rgb(16, 16, 16);}
   to {color: silver;}
