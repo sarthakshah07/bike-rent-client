@@ -13,14 +13,19 @@ import Aos from 'aos'
 import 'aos/dist/aos.css'
 // import "./_home.css"
 
-const FirstView = ({section2Ref}) => {
+const FirstView = ({section1Ref, section2Ref, sectionBikeDisplayRef, sectionServicesRef, sectionPlacesRef, sectionContactUsRef }) => {
     return (
-        <Grid container justifyContent="center" data-aos="slide-right" data-aos-duration="500" sx={{ scrollBehavior: "smooth" }}  maxWidth="100vw" p={0} m={0}>
+        <Grid container ref={section1Ref} justifyContent="center" data-aos="slide-right" data-aos-duration="500" sx={{ scrollBehavior: "smooth" }} maxWidth="100vw" p={0} m={0}>
             <Grid item xs={12} boxShadow={5} minHeight={{ xs: "30vh", md: "100vh" }} maxHeight="100vh" display="flex" flexDirection="column" justifyContent="flex-start" alignItems="center" className='headerContainer'>
 
                 <Grid container height="100%" sx={{ opacity: .8 }}>
                     <Grid item xs={10}>
-                        <Header color="lightyellow" data-aos="fade-down"  section2Ref={section2Ref}/>
+                        <Header color="lightyellow" data-aos="fade-down" section2Ref={section2Ref}
+                            sectionBikeDisplayRef={sectionBikeDisplayRef}
+                            sectionServicesRef={sectionServicesRef}
+                            sectionPlacesRef={sectionPlacesRef}
+                            sectionContactUsRef={sectionContactUsRef}
+                        />
                     </Grid>
 
                     <Grid item xs={10} md={12} height="40%" display={"flex"} justifyContent="center" alignItems="flex-end" >
@@ -69,7 +74,7 @@ const FirstView = ({section2Ref}) => {
                             </Typography>
                         </motion.text>
                     </Grid>
-                    <Grid item xs={5.5}  display={{xs:"none",md:"flex"}} justifyContent="left" alignItems="end">
+                    <Grid item xs={5.5} display={{ xs: "none", md: "flex" }} justifyContent="left" alignItems="end">
 
                         <img
                             data-aos="slide-right"
@@ -79,12 +84,12 @@ const FirstView = ({section2Ref}) => {
                             width="50%" />
 
                     </Grid>
-                    <Grid item xs={1} alignSelf="end" display={{xs:"none",md:"flex"}} justifyContent="center" alignItems="center" flexDirection="column">
+                    <Grid item xs={1} alignSelf="end" display={{ xs: "none", md: "flex" }} justifyContent="center" alignItems="center" flexDirection="column">
 
-                        <KeyboardDoubleArrowDownIcon className='scrollDown' sx={{ fontSize: "10vh", color: "silver" }} />
+                        <KeyboardDoubleArrowDownIcon className='scrollDown' sx={{ fontSize: "10vh", color: "silver" }}  onClick={() => section2Ref.current?.scrollIntoView({ behavior: 'smooth' })} />
                         <Typography color="silver" className='scrollDown'>Scroll Down</Typography>
                     </Grid>
-                    <Grid item xs={5} display={{xs:"none",md:"flex"}} justifyContent="right" alignItems="end" data-aos="slide-left"
+                    <Grid item xs={5} display={{ xs: "none", md: "flex" }} justifyContent="right" alignItems="end" data-aos="slide-left"
                         data-aos-delay="1500">
                         <img
                             src={Ktm}

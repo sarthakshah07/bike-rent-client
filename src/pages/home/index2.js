@@ -58,7 +58,7 @@ const Home = () => {
               <Grid item xs={12} ref={section1Ref} boxShadow={5} minHeight={{xs:"70vh",md:"100vh"}} maxHeight="100vh" display="flex" flexDirection="column" justifyContent="flex-start" alignItems="center" className='headerContainer'>
                
                 <Grid container height="100%" sx={{ opacity: .8 }}>
-                  <Grid item xs={10} border={1}>
+                  <Grid item xs={10} >
                   <Header color="lightyellow" data-aos="fade-down"  section1Ref={section1Ref} section2Ref={section2Ref} section3Ref={section3Ref}/>
                   </Grid>
               
