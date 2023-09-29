@@ -1,4 +1,4 @@
-import { Box, CardMedia, Divider, Grid, MenuItem, Paper, Stack, Typography } from '@mui/material'
+import { Avatar, Box, CardMedia, Divider, Grid, IconButton, MenuItem, Paper, Stack, Tooltip, Typography } from '@mui/material'
 import React, { useEffect, useRef, useState } from 'react'
 import Header from '../../components/header'
 import Activa from "../../assets/images/activa.png"
@@ -6,28 +6,30 @@ import Ktm from "../../assets/images/ktm.png"
 import bikeLogo from "../../assets/images/bikelogo.png"
 import Typewriter from "typewriter-effect";
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
-import KeyboardDoubleArrowDownIcon from '@mui/icons-material/KeyboardDoubleArrowDown';
 import Loader from '../../components/loader'
 import { motion, AnimatePresence, easeInOut, useInView } from "framer-motion"
 import Aos from 'aos'
 import 'aos/dist/aos.css'
 import "./_home.css"
-import Services from '../../components/services'
 import FirstView from '../../components/firstView'
 import AboutUs from '../../components/aboutus'
 import ServicesContainer from '../../components/servicesContainer'
 import VehicleDisplay from '../../components/vehilcleDisplay'
 import PlacesContainer from '../../components/placesContainer'
+import ContactUs from '../../components/contactUs/index'
+import DownContainer from '../../components/downContainer'
+import KeyboardDoubleArrowUpIcon from '@mui/icons-material/KeyboardDoubleArrowUp';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Home = () => {
   const [isLoading, setIsLoading] = useState(false)
-  // const scrollRef = useRef(null)
-  // const section1Ref = useRef(null)
+  const section1Ref = useRef(null)
   const section2Ref = useRef(null)
-  // const section3Ref = useRef(null)
-  // const container = useRef(null)
-  // const ref = useRef(null)
-  // const isInView = useInView({ root: container })
+  const sectionBikeDisplayRef = useRef(null)
+  const sectionServicesRef = useRef(null)
+  const sectionPlacesRef = useRef(null)
+  const sectionContactUsRef = useRef(null)
   useEffect(() => {
 
     setIsLoading(true)
@@ -40,9 +42,6 @@ const Home = () => {
     }, 3500);
 
   }, [])
-  //   useEffect(()=>{
-  // console.log("entering",isInView);
-  //   },[isInView])
   return (
     <AnimatePresence>
       {isLoading ?
@@ -57,16 +56,36 @@ const Home = () => {
           </motion.div>
         </Grid >
         : <>
-          <FirstView section2Ref={section2Ref} />
+          <FirstView 
+          section1Ref={section1Ref}
+          section2Ref={section2Ref} 
+          sectionBikeDisplayRef={sectionBikeDisplayRef} 
+          sectionServicesRef={sectionServicesRef} 
+          sectionPlacesRef={sectionPlacesRef}
+          sectionContactUsRef={sectionContactUsRef}
+          />
           <Divider />
           <AboutUs section2Ref={section2Ref} />
           <Divider />
-          <VehicleDisplay/>
+          <VehicleDisplay sectionBikeDisplayRef={sectionBikeDisplayRef}/>
           <Divider/>
-          <ServicesContainer />
-          <PlacesContainer/>
+          <ServicesContainer sectionServicesRef={sectionServicesRef} />
+          <PlacesContainer sectionPlacesRef={sectionPlacesRef}/>
+          <ContactUs sectionContactUsRef={sectionContactUsRef} toast={toast}/>
+          <DownContainer/>
+          
+          <Box sx={{ height: "10vh", width: "10vh", position: "fixed", top: "80%", right: "2%" }}>
+            <IconButton onClick={()=>section1Ref.current?.scrollIntoView({behavior: 'smooth'})}>
+                <Tooltip title="Back To Top">
+                    <Avatar sx={{ backgroundColor: "lightblue" }}>
+                        <KeyboardDoubleArrowUpIcon />
+                    </Avatar>
+                </Tooltip>
+            </IconButton>
+        </Box>
         </>
       }
+      <ToastContainer />
     </AnimatePresence>
   )
 }

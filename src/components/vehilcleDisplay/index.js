@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react'
-import { Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, Grid, Typography } from '@mui/material'
+import { Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, Grid, Paper, Typography } from '@mui/material'
 import Masonry, { ResponsiveMasonry } from "react-responsive-masonry"
 import activa from "../../assets/images/vehicleImages/b_activa.webp"
 import bike1 from "../../assets/images/vehicleImages/b_bulet.webp"
@@ -10,7 +10,7 @@ import bike4 from "../../assets/images/vehicleImages/b_shine.webp"
 import bike5 from "../../assets/images/vehicleImages/b_sport.webp"
 
 
-const VehicleDisplay = () => {
+const VehicleDisplay = ({sectionBikeDisplayRef}) => {
     const [isOpen, setIsOpen] = useState(false)
     const [selectedImage, setSelectedImage] = useState()
     const imagesData = [
@@ -55,23 +55,37 @@ const VehicleDisplay = () => {
         setIsOpen(false)
     }
     return (
-        <Grid container justifyContent="center" data-aos="slide-right" data-aos-duration="500" sx={{ scrollBehavior: "smooth" }} p={0} m={0}>
-            <Grid item xs={10} textAlign="center" >  <Typography variant='h3' fontWeight={"bolder"} fontFamily="sans-serif" >Two Wheeler Gallery</Typography></Grid>
-            <Grid item xs={10} display="flex" justifyContent="center" alignItems="end" p={4} >
+        <Grid container  justifyContent="center" data-aos="slide-right" data-aos-duration="500" sx={{ scrollBehavior: "smooth", backgroundColor: "white" }} p={0} m={0}>
+            <Grid item xs={10} textAlign="center" pt={8} ref={sectionBikeDisplayRef}>  <Typography variant='h3' fontWeight={"bolder"} fontFamily="sans-serif" >Two Wheeler Gallery</Typography></Grid>
+            <Grid item xs={10}  display="flex" justifyContent="center" alignItems="end" p={4} >
 
                 <ResponsiveMasonry
                     columnsCountBreakPoints={{ 350: 1, 750: 2, 900: 3 }}
                     style={{ width: "100vw" }}
+                    
                 >
-                    <Masonry gutter='5px'>
+                    <Masonry gutter='30px' >
                         {imagesData?.map((item, index) => (
-                            <img
-                                key={index}
-                                src={item?.image}
-                                alt='no image'
-                                style={{ width: "100%", height: item?.height }}
-                                onClick={() => handleImage(item, index)}
-                            />
+                            <Paper sx={{
+                                width: "100%", height: "100%", cursor: "pointer", scale: "1", transitionDuration: "2s",
+                                "&:hover": {
+                                    scale: "1.01"
+                                },
+                            }}
+                                data-aos="zoom-in"
+                                // data-aos-easing="ease-in-back"
+                                data-aos-delay={index*300}>
+                                <img
+                                    key={index}
+                                    src={item?.image}
+                                    alt='no image'
+                                    style={{
+                                        width: "100%", height: item?.height, padding: 4,
+                                    }}
+
+                                    onClick={() => handleImage(item, index)}
+                                />
+                            </Paper>
                         ))}
                     </Masonry>
                 </ResponsiveMasonry>

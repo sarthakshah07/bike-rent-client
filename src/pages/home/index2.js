@@ -16,27 +16,14 @@ import Services from '../../components/services'
 
 const Home = () => {
   const [isLoading, setIsLoading] = useState(false)
-  const scrollRef = useRef(null)
   const section1Ref = useRef(null)
   const section2Ref = useRef(null)
   const section3Ref = useRef(null)
-  // const container = useRef(null)
-  // const ref = useRef(null)
-  // const isInView = useInView({ root: container })
   useEffect(() => {
-
-    // setIsLoading(true)
-    // setTimeout(() => {
     Aos.init({
       duration: 1200,
     })
-    //   setIsLoading(false)
-    // }, 3500);
-
   }, [])
-  //   useEffect(()=>{
-  // console.log("entering",isInView);
-  //   },[isInView])
   return (
     <AnimatePresence>
       <Box>
@@ -58,7 +45,7 @@ const Home = () => {
               <Grid item xs={12} ref={section1Ref} boxShadow={5} minHeight={{xs:"70vh",md:"100vh"}} maxHeight="100vh" display="flex" flexDirection="column" justifyContent="flex-start" alignItems="center" className='headerContainer'>
                
                 <Grid container height="100%" sx={{ opacity: .8 }}>
-                  <Grid item xs={10} border={1}>
+                  <Grid item xs={10} >
                   <Header color="lightyellow" data-aos="fade-down"  section1Ref={section1Ref} section2Ref={section2Ref} section3Ref={section3Ref}/>
                   </Grid>
               

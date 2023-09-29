@@ -2,10 +2,10 @@ import { Grid } from '@mui/material'
 import React from 'react'
 import Services from '../services'
 
-const ServicesContainer = () => {
+const ServicesContainer = ({sectionServicesRef}) => {
     return (
-        <Grid container justifyContent="center" data-aos="slide-right" data-aos-duration="500" sx={{ scrollBehavior: "smooth" }} maxWidth="100vw" p={0} m={0}>
-            <Grid item xs={12} display="flex" justifyContent="center" alignItems="end" >
+        <Grid container justifyContent="center" data-aos="slide-right" data-aos-duration="500" sx={{ scrollBehavior: "smooth" }} minHeight={{xs:"100vh",md:"100vh"}} maxWidth="100vw" p={0} m={0} >
+            <Grid item xs={12} ref={sectionServicesRef} display="flex" justifyContent="center" alignItems="end" >
                 <svg width="100%" height="100%" id="svg" viewBox="0 0 1440 690" xmlns="http://www.w3.org/2000/svg" className='svg'>
                     {/* </svg> */}
                     <defs>

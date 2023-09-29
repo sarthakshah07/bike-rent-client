@@ -13,6 +13,7 @@ body{
 }
 .scrollDown{
   animation: infinite scrollscale 2s;
+  cursor: pointer;
 }
 .scrollDown:hover{
   scale: 1.02;
