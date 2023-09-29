@@ -16,27 +16,14 @@ import Services from '../../components/services'
 
 const Home = () => {
   const [isLoading, setIsLoading] = useState(false)
-  const scrollRef = useRef(null)
   const section1Ref = useRef(null)
   const section2Ref = useRef(null)
   const section3Ref = useRef(null)
-  // const container = useRef(null)
-  // const ref = useRef(null)
-  // const isInView = useInView({ root: container })
   useEffect(() => {
-
-    // setIsLoading(true)
-    // setTimeout(() => {
     Aos.init({
       duration: 1200,
     })
-    //   setIsLoading(false)
-    // }, 3500);
-
   }, [])
-  //   useEffect(()=>{
-  // console.log("entering",isInView);
-  //   },[isInView])
   return (
     <AnimatePresence>
       <Box>

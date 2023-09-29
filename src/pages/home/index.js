@@ -6,13 +6,11 @@ import Ktm from "../../assets/images/ktm.png"
 import bikeLogo from "../../assets/images/bikelogo.png"
 import Typewriter from "typewriter-effect";
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
-import KeyboardDoubleArrowDownIcon from '@mui/icons-material/KeyboardDoubleArrowDown';
 import Loader from '../../components/loader'
 import { motion, AnimatePresence, easeInOut, useInView } from "framer-motion"
 import Aos from 'aos'
 import 'aos/dist/aos.css'
 import "./_home.css"
-import Services from '../../components/services'
 import FirstView from '../../components/firstView'
 import AboutUs from '../../components/aboutus'
 import ServicesContainer from '../../components/servicesContainer'
@@ -23,20 +21,15 @@ import DownContainer from '../../components/downContainer'
 import KeyboardDoubleArrowUpIcon from '@mui/icons-material/KeyboardDoubleArrowUp';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-// import FooterContainer from '../../components/footerContainer/index'
 
 const Home = () => {
   const [isLoading, setIsLoading] = useState(false)
-  // const scrollRef = useRef(null)
   const section1Ref = useRef(null)
   const section2Ref = useRef(null)
   const sectionBikeDisplayRef = useRef(null)
   const sectionServicesRef = useRef(null)
   const sectionPlacesRef = useRef(null)
   const sectionContactUsRef = useRef(null)
-  // const container = useRef(null)
-  // const ref = useRef(null)
-  // const isInView = useInView({ root: container })
   useEffect(() => {
 
     setIsLoading(true)
@@ -49,9 +42,6 @@ const Home = () => {
     }, 3500);
 
   }, [])
-  //   useEffect(()=>{
-  // console.log("entering",isInView);
-  //   },[isInView])
   return (
     <AnimatePresence>
       {isLoading ?

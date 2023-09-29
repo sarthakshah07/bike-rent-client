@@ -21,7 +21,6 @@ const ContactUs = ({sectionContactUsRef,toast}) => {
     phone: "+91 9827656500",
     email: "shubham.nagota@gmail.com"
   }
-  console.log("toast",toast);
   return (
     <Grid container   ref={sectionContactUsRef} data-aos="slide-right" data-aos-duration="500" sx={{ scrollBehavior: "smooth" }} maxWidth="100vw" pt={{ xs: 0, md: 5 }} paddingBottom={{ xs: 5, md: 8 }} justifyContent="center" >
       <Box width="100%" height="100%" data-aos="fade-right" sx={{ marginTop: "0vh" }} position={"relative"} marginBottom={10} >

@@ -5,18 +5,16 @@ import 'swiper/css';
 import 'swiper/css/effect-coverflow';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
-import Image from "../../assets/images/activa.png"
 import "./_slider.css"
 import { EffectCoverflow, Pagination, Navigation ,Autoplay } from 'swiper/modules';
-import { Box, Card, CardContent, CardMedia, Grid, Typography } from '@mui/material';
+import { Box,Typography } from '@mui/material';
 import image1 from "../../assets/images/places/shipraArti.webp"
-import image2 from "../../assets/images/places/ganeshji.jpg"
+import image2 from "../../assets/images/places/ganeshji.png"
 import image3 from "../../assets/images/places/gomtikund.avif"
 import image4 from "../../assets/images/places/kaliyadeshPalace.jpg"
 import image5 from "../../assets/images/places/mahakal.jpg"
 import image6 from "../../assets/images/places/omlareshwar.jpg"
 import image7 from "../../assets/images/places/ramghat.jpg"
-import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 
 
 SwiperCore.use([Autoplay])
